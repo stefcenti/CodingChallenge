@@ -29,6 +29,12 @@
               <input type="text" name="task" placeholder="add task here">
               <input type="submit" value"assign task">
             </form>
+
+            <form action="people/delete/{{this.id}}?_method=DELETE" method="POST">
+              <!-- to delete a person: pass in the id of the person inside the form - you would access this in the route using req.body.id not req.params.id -->
+              <!-- <input type="hidden" name="id" value="{{this.id}}"> -->
+              < type="submit">DELETE!</button>
+            </form>
           </li>
         {{/if}}
 

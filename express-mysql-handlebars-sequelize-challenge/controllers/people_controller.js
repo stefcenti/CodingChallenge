@@ -23,4 +23,25 @@ router.post('/create', function(req, res) {
   });
 });
 
+router.delete('/delete/:id', function(req,res) {  
+  models.Person.findOne({
+    where: { id: req.params.id }
+  })
+  .then(function(person) {
+      // SOLUTION:
+      // =========
+      // use the Person model to delete a person
+      // based on the id passed in the url
+      models.Person.destroy({
+        where: {
+          id: req.params.id
+        }
+      })
+      // connect it to this .then.
+      .then(function() {
+        res.redirect('/');
+      });
+    }
+  });})
+
 module.exports = router;
